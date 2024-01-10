@@ -23,7 +23,7 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: ["/bin/sh", "-c", "gpasswd -a jenkins docker && sleep 5 && chmod 666 /var/run/docker.sock"]
+                command: ["/bin/sh", "-c", "gpasswd -a jenkins docker && sleep 5 && chmod 666 /var/run/docker.sock && echo 'jenkins:12345' | chpasswd && service ssh start && su - jenkins"]
           # resources:
           #   limits:
           #     memory: '256Mi'
